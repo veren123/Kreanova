@@ -1,116 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VERDIYA</title>
-
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome CDN for icons -->
+    <title>Header Responsif</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
-
-<body class="light-mode">
+<body>
     <header>
-        <div class="logo">
-            <h2>VERDIYA</h2>
+        <div class="header-container">
+            <h1>verdiya</h1>
         </div>
-        <div class="icons">
-            <i id="theme-toggle" class="fas fa-sun"></i> <!-- Light/Dark mode toggle -->
-            <i class="fas fa-cog"></i> <!-- Settings icon -->
-        </div>
-    </header>
+    </header> 
 
-    <!-- Modern Cyberpunk Banner -->
-    <section class="banner">
-        <h1></h1>
-        <p>Lorem ipsum dolor sit.!</p>
-    </section>
+    <br>
+    <!-- bagian login dan masuk -->
+    <div class="masuk-daftar">
+        <a href="daftar.html"><i class="fas fa-sign-out-alt"></i> daftar </a>
+     
 
-    <!-- Container untuk 3 card -->
-    <div class="card-container">
-        <div class="card1">
-            <img src="" alt="card1">
-            <strong>Judul Card 1</strong>
-            <button onclick="openPopup('popup1')">Baca Selengkapnya</button>
-        </div>
-        <div class="card2">
-            <img src="" alt="card2">
-            <strong>Judul Card 2</strong>
-            <button onclick="openPopup('popup2')">Baca Selengkapnya</button>
-        </div>
-        <div class="card3">
-            <img src="" alt="card3">
-            <strong>Judul Card 3</strong>
-            <button onclick="openPopup('popup3')">Baca Selengkapnya</button>
+        <!-- bagian versi -->
+        <div class="versi">
+            <p>v4.8.0</p>
         </div>
     </div>
 
-    <!-- Pop-up 1 -->
-    <div id="popup1" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup('popup1')">&times;</span>
-            <h2>Judul Card 1</h2>
-            <img src="URL_GAMBAR_1" alt="Gambar 1">
-            <p>Penjelasan detail tentang card 1...</p>
+    <br>
+
+
+ 
+    <div class="logo">
+        <a href="#lokasi"><i class="fas fa-map-marker-alt"></i>Lokasi pembuangan sampah</a>
+        <a href="#hubungi-kami"><i class="fas fa-puzzle-piece"></i> Quiz</a>
+        <a href="#penghitung-plastik"><i class="fas fa-recycle"></i> callculator penggunaan sampah  </a>
+    </div>
+    <div class="gallery">
+        <h4>gallery kerusakan lingkungan dan sampah</h4>
+       
+        <img src="gambar1.jpg" alt="p">
+        <img src="gambar2.jpg" alt="p">
+        <img src="gambar3.jpeg" alt="p">
+        <img src="gambar4.jpg" alt="p">
+       
+    </div>
+    <div class="blog">
+        <div class="card">
+            <img src="gb1.png" alt="s">
+            <p><strong>7 Simbol Plastik yang Harus Kamu Tahu: Panduan Memahami Jenis dan Fungsinya</strong></p>
+            <button><a href="gb1.html">baca selengkapnya</a></button>
+        </div>
+        <div class="card">
+            <img src="path/to/image2.jpg" alt="s">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <button>Lorem ipsum dolor sit amet consectetur.</button>
+        </div>
+        <div class="card">
+            <img src="path/to/image3.jpg" alt="p">
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <button>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim!</button>
         </div>
     </div>
-
-    <!-- Pop-up 2 -->
-    <div id="popup2" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup('popup2')">&times;</span>
-            <h2>Judul Card 2</h2>
-            <img src="URL_GAMBAR_2" alt="Gambar 2">
-            <p>Penjelasan detail tentang card 2...</p>
-        </div>
-    </div>
-
-    <!-- Pop-up 3 -->
-    <div id="popup3" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup('popup3')">&times;</span>
-            <h2>Judul Card 3</h2>
-            <img src="URL_GAMBAR_3" alt="Gambar 3">
-            <p>Penjelasan detail tentang card 3...</p>
-        </div>
-    </div>
-
-    <!-- About Me Section -->
-    <section class="about-me">
-        <h2>Tentang Kami</h2>
-        <p>Kami adalah tim yang berdedikasi untuk menciptakan solusi inovatif untuk masalah lingkungan. Berikut adalah
-            pembuat proyek ini:</p>
-
-        <div class="team-container">
-            <div class="team-member">
-                <img src="URL_FOTO_1" alt="Nama Pembuat 1">
-                <h3>Nama Pembuat 1</h3>
-                <p>Deskripsi singkat tentang Pembuat 1. Mengapa dia terlibat dalam proyek ini dan apa perannya.</p>
-            </div>
-
-            <div class="team-member">
-                <img src="URL_FOTO_2" alt="Nama Pembuat 2">
-                <h3>Nama Pembuat 2</h3>
-                <p>Deskripsi singkat tentang Pembuat 2. Mengapa dia terlibat dalam proyek ini dan apa perannya.</p>
-            </div>
-
-            <div class="team-member">
-                <img src="URL_FOTO_3" alt="Nama Pembuat 3">
-                <h3>Nama Pembuat 3</h3>
-                <p>Deskripsi singkat tentang Pembuat 3. Mengapa dia terlibat dalam proyek ini dan apa perannya.</p>
-            </div>
-        </div>
-    </section>
-
-
-
     
-        
-    <script src="script.js"></script>
-</body>
 
+    <div class="navbar-dibawah">
+        <a href="#beranda"><i class="fas fa-home"></i> Beranda</a>
+        <a href="#tentang-kami"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+       
+        
+    </div>
+</body>
 </html>
