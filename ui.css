@@ -1,0 +1,190 @@
+.container {
+    width: 360px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Professional font */
+}
+
+/* Header Container */
+header {
+    background: linear-gradient(135deg, #7FFFD4	 30%, #f39c12 60%, #e74c3c 30%, #3498db 100%); /* Gradient including yellow and red */
+    padding: 20px 0; /* Adds space around header */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo/Title */
+h1 {
+    font-size: 2.5rem; /* Modern large font size */
+    color: #000; /* Dark gray for a more professional tone */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Adds some spacing between letters */
+}
+
+/* Optional: Add media queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+.form-group button:active {
+    background-color: #004494;
+}
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+
+
+/* Navbar Dibawah Styles */
+.navbar-dibawah {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #7FFFD4	 30%, #f39c12 60%, #e74c3c 30%, #3498db 100%); /* Gradient including yellow and red */
+    padding: 15px 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman yang lebih halus */
+    border-top: 1px solid #444; /* Garis atas untuk pemisahan yang halus */
+}
+
+.navbar-dibawah a {
+    color: #000; /* Warna teks */
+    text-decoration: none; /* Menghapus garis bawah */
+    font-size: 16px; /* Ukuran font */
+    display: flex;
+    align-items: center; /* Menyelaraskan teks dan ikon secara vertikal */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Transisi halus */
+    padding: 10px 15px; /* Ruang di sekitar teks dan ikon */
+    border-radius: 5px; /* Sudut melengkung pada tautan */
+}
+
+.navbar-dibawah i {
+    font-size: 20px; /* Ukuran ikon */
+    color: #000; /* Warna ikon */
+}
+
+.navbar-dibawah a:hover {
+    color: #ffffff; /* Warna teks saat hover */
+    background-color: #555; /* Warna latar belakang saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Media Query untuk Perangkat Mobile */
+@media (max-width: 768px) {
+    .navbar-dibawah {
+        gap: 15px; /* Jarak yang lebih kecil antara item navbar pada layar kecil */
+    }
+
+    .navbar-dibawah a {
+        font-size: 14px; /* Menyesuaikan ukuran font untuk layar kecil */
+    }
+
+    .navbar-dibawah i {
+        font-size: 18px; /* Menyesuaikan ukuran ikon untuk layar kecil */
+    }
+}

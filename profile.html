@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 360px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-header {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #007bff;
+        }
+        .profile-header .edit-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .form-group button:active {
+            background-color: #004494;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            background-color: #004494;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
+            <div class="edit-icon" onclick="document.getElementById('file-input').click();">
+                <i class="fas fa-camera"></i>
+            </div>
+        </div>
+        <h1>Profile</h1>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="saveProfile()">Save</button>
+        </div>
+        <input type="file" id="file-input" style="display: none;" accept="image/*" onchange="updateProfilePic(event)">
+        <a href="index.html" class="back-button">Kembali ke Halaman</a>
+    </div>
+    <script>
+        // Load profile data from local storage
+        window.onload = function() {
+            const profilePic = document.getElementById('profile-pic');
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            
+            const profileData = JSON.parse(localStorage.getItem('profileData')) || {};
+            if (profileData.profilePic) {
+                profilePic.src = profileData.profilePic;
+            }
+            if (profileData.username) {
+                usernameInput.value = profileData.username;
+            }
+            if (profileData.email) {
+                emailInput.value = profileData.email;
+            }
+        };
+
+        function updateProfilePic(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-pic').src = e.target.result;
+                    const profileData = JSON.parse(localStorage.getItem('profileData')) || {};
+                    profileData.profilePic = e.target.result;
+                    localStorage.setItem('profileData', JSON.stringify(profileData));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveProfile() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const profileData = JSON.parse(localStorage.getItem('profileData')) || {};
+            profileData.username = username;
+            profileData.email = email;
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+            alert('Profile saved successfully!');
+        }
+    </script>
+</body>
+</html>
