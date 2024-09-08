@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="icon" href="IMG-20240908-WA0000.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Header Container */
+        header {
+            background: linear-gradient(135deg, #7FFFD4 30%, #f39c12 60%, #e74c3c 30%, #3498db 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Navbar Dibawah Styles */
+        .navbar-dibawah {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, #7FFFD4 30%, #f39c12 60%, #e74c3c 30%, #3498db 100%);
+            padding: 15px 0;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid #444;
+        }
+
+        .navbar-dibawah a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar-dibawah i {
+            font-size: 20px;
+            color: #000;
+        }
+
+        .navbar-dibawah a:hover {
+            color: #ffffff;
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        /* Media Query untuk Perangkat Mobile */
+        @media (max-width: 768px) {
+            .navbar-dibawah {
+                gap: 15px;
+            }
+
+            .navbar-dibawah a {
+                font-size: 14px;
+            }
+
+            .navbar-dibawah i {
+                font-size: 18px;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-left: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .short-answer {
+            margin-top: 20px;
+        }
+
+        .short-answer textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .result h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .result p {
+            margin-bottom: 5px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .result p {
+            font-size: 18px;
+        }
+        .result .correct {
+            color: green;
+        }
+        .result .incorrect {
+            color: red;
+        }
+        /* Styling untuk input nama */
+input#user-name {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>verdiya</h1>
+        </div>
+    </header> 
+
+    <div class="container">
+        <div id="quiz-content">
+            <div class="question">
+                <div class="question">
+                    <h2>Masukkan Nama Anda:</h2>
+                    <input type="text" id="user-name" placeholder="Nama Anda" required>
+                </div>
+                <h2>Apa yang dimaksud dengan daur ulang?</h2>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A. Proses membakar sampah untuk menghasilkan energi</label>
+                    <label><input type="radio" name="q1" value="B"> B. Proses mengubah sampah menjadi bahan baru yang berguna</label>
+                    <label><input type="radio" name="q1" value="C"> C. Proses menimbun sampah di tempat pembuangan akhir</label>
+                    <label><input type="radio" name="q1" value="D"> D. Proses membuang sampah ke laut</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h2>Apa dampak utama dari sampah plastik yang dibuang ke lautan?</h2>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> A. Memperbaiki kualitas air laut</label>
+                    <label><input type="radio" name="q2" value="B"> B. Mengancam kehidupan laut dan merusak ekosistem</label>
+                    <label><input type="radio" name="q2" value="C"> C. Meningkatkan jumlah ikan</label>
+                    <label><input type="radio" name="q2" value="D"> D. Menyuburkan tanaman laut</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h2>Jenis sampah apa yang biasanya dapat didaur ulang?</h2>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A. Sampah makanan</label>
+                    <label><input type="radio" name="q3" value="B"> B. Sampah organik</label>
+                    <label><input type="radio" name="q3" value="C"> C. Sampah kaca dan kertas</label>
+                    <label><input type="radio" name="q3" value="D"> D. Sampah medis</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h2>Apa yang dimaksud dengan 'zero waste'?</h2>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> A. Strategi membuang semua sampah ke tempat pembuangan akhir</label>
+                    <label><input type="radio" name="q4" value="B"> B. Mengurangi, menggunakan kembali, dan mendaur ulang sebanyak mungkin untuk mengurangi jumlah sampah yang dihasilkan</label>
+                    <label><input type="radio" name="q4" value="C"> C. Membeli barang-barang sekali pakai</label>
+                    <label><input type="radio" name="q4" value="D"> D. Membakar semua sampah yang dihasilkan</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h2>Apa yang sebaiknya dilakukan dengan sampah organik?</h2>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> A. Dibuang ke tempat pembuangan akhir</label>
+                    <label><input type="radio" name="q5" value="B"> B. Didaur ulang menjadi kompos</label>
+                    <label><input type="radio" name="q5" value="C"> C. Dibakar</label>
+                    <label><input type="radio" name="q5" value="D"> D. Dibuang ke lautan</label>
+                </div>
+            </div>
+
+          
+
+            <button class="submit-btn" onclick="submitQuiz()">Kirim</button>
+        </div>
+
+        <div id="quiz-result" class="result" style="display: none;">
+            <h3>Hasil Quiz</h3>
+            <p id="result-name"></p> <!-- Menampilkan nama pengguna -->
+            <p id="result-score"></p>
+            <div id="result-multiple-choice"></div>
+            <div id="result-short-answer"></div>
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+    // Jawaban benar untuk setiap pertanyaan
+    const correctAnswers = {
+        q1: 'B',
+        q2: 'B',
+        q3: 'C',
+        q4: 'B',
+        q5: 'B'
+    };
+
+    // Skor
+    let score = 0;
+
+    // Ambil nama pengguna
+    const userName = document.getElementById('user-name').value || 'Pengguna';
+
+    // Ambil nilai dari radio buttons
+    const answers = {
+        q1: document.querySelector('input[name="q1"]:checked')?.value,
+        q2: document.querySelector('input[name="q2"]:checked')?.value,
+        q3: document.querySelector('input[name="q3"]:checked')?.value,
+        q4: document.querySelector('input[name="q4"]:checked')?.value,
+        q5: document.querySelector('input[name="q5"]:checked')?.value,
+    };
+
+    // Menyusun hasil untuk ditampilkan
+    const resultContainer = document.getElementById('quiz-result');
+    const resultMC = document.getElementById('result-multiple-choice');
+    const resultSA = document.getElementById('result-short-answer');
+    const resultScore = document.getElementById('result-score');
+    const resultName = document.getElementById('result-name');
+
+    let resultMCHTML = '<h4>Jawaban Pilihan Ganda:</h4>';
+    Object.keys(answers).forEach((key, index) => {
+        const isCorrect = answers[key] === correctAnswers[key];
+        if (isCorrect) {
+            score += 200; // Menambahkan 200 poin per jawaban benar
+        }
+        resultMCHTML += `
+            <p>
+                ${index + 1}. ${isCorrect ? '<span class="correct">Benar</span>' : '<span class="incorrect">Salah</span>'} - Jawaban Anda: ${answers[key] || 'Belum dijawab'}
+            </p>
+        `;
+    });
+
+    // Menampilkan nama dan skor
+    resultName.textContent = `Nama Anda: ${userName}`;
+    resultScore.textContent = `Skor Anda: ${Math.min(score, 400)} / 400`; // Skor maksimum 1000
+
+    // Menyembunyikan quiz dan menampilkan hasil
+    document.getElementById('quiz-content').style.display = 'none';
+    resultContainer.style.display = 'block';
+}
+
+    </script>
+    
+    <div class="navbar-dibawah">
+        <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+        <a href="aboutme.html"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Penggunaan Sampah</title>
+  
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c70039;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Kalkulator Penggunaan Sampah</h1>
+        <form id="waste-form">
+            <label for="paper">Jumlah Kertas (kg):</label>
+            <input type="number" id="paper" name="paper" step="0.1" min="0" required>
+
+            <label for="plastic">Jumlah Plastik (kg):</label>
+            <input type="number" id="plastic" name="plastic" step="0.1" min="0" required>
+
+            <label for="organic">Jumlah Organik (kg):</label>
+            <input type="number" id="organic" name="organic" step="0.1" min="0" required>
+
+            <label for="years">Jumlah Tahun:</label>
+            <input type="number" id="years" name="years" step="1" min="1" required>
+
+            <button type="submit">Hitung</button>
+        </form>
+
+        <div id="result" class="result">
+            <!-- Hasil kalkulasi akan ditampilkan di sini -->
+        </div>
+    </div>
+  <script>
+    document.getElementById('waste-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Ambil nilai dari input
+    const paper = parseFloat(document.getElementById('paper').value) || 0;
+    const plastic = parseFloat(document.getElementById('plastic').value) || 0;
+    const organic = parseFloat(document.getElementById('organic').value) || 0;
+
+    // Kalkulasi total sampah
+    const totalWaste = paper + plastic + organic;
+
+    // Tampilkan hasil
+    document.getElementById('result').innerHTML = `
+        <h2>Hasil Kalkulasi</h2>
+        <p>Total Sampah: ${totalWaste.toFixed(1)} kg</p>
+        <p>Kertas: ${paper.toFixed(1)} kg</p>
+        <p>Plastik: ${plastic.toFixed(1)} kg</p>
+        <p>Organik: ${organic.toFixed(1)} kg</p>
+    `;
+});
+
+  </script>
+</body>
+</html>
