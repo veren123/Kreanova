@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSphere Calculator Instructions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="icon" href="IMG-20240908-WA0000.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .instructions {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 100px; /* Move the instructions up by 100px (10 cm) */
+        }
+
+        .instructions p {
+            font-size: 1.25em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .checklist {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .checklist input[type="checkbox"] {
+            display: none;
+        }
+
+        .checklist label {
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+            color: #333;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .checklist input[type="checkbox"]:checked + label .checkmark {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .checklist input[type="checkbox"]:checked + label .checkmark::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            animation: checkmark-animation 0.3s ease forwards;
+        }
+
+        @keyframes checkmark-animation {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%; /* Make button full width */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        nav {
+            background-color: transparent;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1E90FF;
+            font-weight: bold;
+            padding: 10px 15px;
+            position: relative; /* For the underline effect */
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px; /* Height of the underline */
+            background-color: #1E90FF; /* Underline color */
+            transform: scaleX(0); /* Start hidden */
+            transition: transform 0.3s ease; /* Animation for scaling */
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1); /* Show underline on hover */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="instructions">
+        <p><strong>Panduan Penggunaan GreenSphere Calculator</strong></p>
+        <ol>
+            <li>Masukkan Data: Input angka pada formulir untuk menganalisis penggunaan sampah Anda.</li>
+            <li>Kirim Data: Setelah informasi terisi, klik tombol kirim.</li>
+            <li>Hasil Analisis: Lihat hasil analisis dan komentar setelah pengiriman.</li>
+        </ol>
+        <div class="checklist">
+            <input type="checkbox" id="check" />
+            <label for="check"><span class="checkmark"></span>Saya sudah memahami instruksi ini</label>
+        </div>
+        <button id="submitButton">Kirim jawaban Anda <i class="fas fa-cloud"></i></button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            // Tambahkan logika untuk memeriksa apakah checkbox dicentang
+            const checkbox = document.getElementById('check');
+            if (checkbox.checked) {
+                // Redirect ke halaman baru jika checkbox dicentang
+                window.location.href = "GreenSphere Calculator Instructions.html"; // Ganti dengan URL halaman yang diinginkan
+            } else {
+                alert('Silakan centang kotak jika Anda sudah memahami instruksi.');
+            }
+        });
+
+        console.log("%cHacker jangan mencuri, selamat anda telah menemukan easter egg", "font-family: Arial; font-size: 16px; color: red;");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verdiya</title>
+    <link rel="icon" href="IMG-20240908-WA0000.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+<style>
+    /* Styling untuk overlay pop-up */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Lebih lembut */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        transition: visibility 0.3s ease-in-out;
+    }
+
+    /* Styling untuk pop-up box */
+    .welcome {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        /* Bayangan lembut */
+        font-family: 'Arial', sans-serif;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        transform: scale(0.95);
+    }
+
+    .overlay.show .welcome {
+        transform: scale(1);
+    }
+
+    /* Styling untuk tombol close */
+    .icon-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+    }
+
+    .icon-close::before,
+    .icon-close::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background-color: #666;
+        border-radius: 1px;
+    }
+
+    .icon-close::before {
+        transform: rotate(45deg);
+    }
+
+    .icon-close::after {
+        transform: rotate(-45deg);
+    }
+
+    /* Input dan tombol */
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin: 15px 0;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px 25px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: cyan;
+        color: #333;
+    }
+
+    /* Tampilkan overlay ketika visible */
+    .overlay.show {
+        visibility: visible;
+    }
+
+    #greeting-message {
+        background-color: #f0f8ff;
+        /* Warna latar belakang lembut */
+        color: #333;
+        /* Warna teks */
+        border-left: 5px solid cyan;
+        /* Garis samping kiri sebagai aksen */
+        padding: 15px;
+        /* Padding dalam elemen */
+        font-size: 18px;
+        /* Ukuran font */
+        font-family: 'Arial', sans-serif;
+        /* Font */
+        margin-top: 20px;
+        /* Jarak dari elemen sebelumnya */
+        border-radius: 8px;
+        /* Sudut yang melengkung */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Bayangan lembut */
+        text-align: center;
+        /* Teks di tengah */
+        line-height: 1.5;
+        /* Jarak antara baris teks */
+        opacity: 0;
+        /* Awalnya disembunyikan */
+        transform: translateY(-20px);
+        /* Mulai sedikit lebih tinggi */
+        transition: opacity 1s ease, transform 1s ease;
+        /* Transisi untuk efek smooth */
+    }
+
+
+    /* Animasi fade-in untuk pesan */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    #greeting-message {
+        opacity: 0;
+        /* Awalnya disembunyikan */
+        transform: translateY(20px);
+        /* Mulai sedikit di bawah */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Efek transisi */
+    }
+
+    #greeting-message.show {
+        opacity: 1;
+        /* Muncul dengan penuh */
+        transform: translateY(0);
+        /* Kembali ke posisi normal */
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>verdiya</h1>
+        </div>
+    </header>
+
+    <br>
+    <!-- bagian login dan masuk -->
+    <div class="masuk-daftar">
+        <a href="daftar.html"><i class="fas fa-sign-out-alt"></i> daftar </a>
+
+
+        <!-- bagian versi -->
+        <div class="versi">
+            <p>v5.9.0</p>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="overlay" id="welcomePopup">
+        <div class="welcome">
+            <h2 style="color:cyan; font-weight:normal;">Selamat Datang!</h2>
+            <p style="color:#666; font-size: 14px;">Masukkan nama Anda untuk melanjutkan kedalam dan selamat merasakan fitur fitur yang kami berikan:</p>
+            <input type="text" id="username" placeholder="pliss masukan namamu disini" autocomplete="off">
+            <button id="submitName">Submit</button>
+        </div>
+    </div>
+
+
+    <!-- Pesan setelah pop-up -->
+    <div id="greeting-message">Selamat Datang, <span id="nameDisplay"></span>! saya harap anda bisa merasakan fitur
+        fitur yang saya sediakan</div>
+
+<br>
+
+    <div class="logo">
+        <a href="ujicoba.html"><i class="fas fa-phone"></i>hubungi kami</a>
+        <a href="quiz.html"><i class="fas fa-puzzle-piece"></i> Quiz</a>
+        <a href="instruksi.html"><i class="fas fa-recycle"></i> GreenSphere Calculator </a>
+    </div>
+    <div class="gallery">
+        <h4>gallery kerusakan lingkungan dan sampah</h4>
+
+        <img src="gambar1.jpg" alt="p">
+        <img src="gambar2.jpg" alt="p">
+        <img src="gambar3.jpeg" alt="p">
+        <img src="gambar4.jpg" alt="p">
+
+    </div>
+    <div class="blog">
+        <div class="card">
+            <img src="gb1.png" alt="s">
+            <p><strong>7 Simbol Plastik yang Harus Kamu Tahu: Panduan Memahami Jenis dan Fungsinya</strong></p>
+            <br>
+            <button><a href="gb1.html">baca selengkapnya</a></button>
+        </div>
+        <div class="card">
+            <img src="logo 1.jpg" alt="s">
+            <b>Kenali Tempat Sampah untuk Lingkungan yang Lebih Sehat</b>
+            <br>
+            <button><a href="tempat-sampah.html">baca selengkapnya</a></button>
+        </div>
+        <div class="card">
+            <img src="sp.jpg" alt="p">
+            <b>Panduan Pengelolaan Sampah Rumah Tangga</b>
+            <br>
+            <button><a href="pd.html">baca selengkapnya</a></button>
+        </div>
+    </div>
+
+
+    <div class="navbar-dibawah">
+        <a href="#beranda"><i class="fas fa-home"></i> Beranda</a>
+        <a href="aboutme.html"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+    </div>
+
+    <script>
+// Ambil elemen-elemen dari DOM
+const welcomePopup = document.getElementById("welcomePopup");
+const submitName = document.getElementById("submitName");
+const nameDisplay = document.getElementById("nameDisplay");
+const greetingMessage = document.getElementById("greeting-message");
+const usernameInput = document.getElementById("username");
+
+// Periksa apakah pengguna sudah mengirimkan nama mereka sebelumnya
+window.onload = function () {
+    // Ambil nama pengguna dari localStorage
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+        // Tampilkan pesan jika nama pengguna ada di localStorage
+        nameDisplay.textContent = storedName;
+        greetingMessage.style.display = "block";
+        greetingMessage.classList.add("show");
+    } else {
+        // Tampilkan pop-up jika belum ada nama pengguna
+        welcomePopup.classList.add("show");
+    }
+}
+
+// Fungsi untuk menampilkan pesan setelah submit dengan animasi
+submitName.onclick = function () {
+    const username = usernameInput.value.trim(); // Trim untuk menghilangkan spasi ekstra
+    if (username !== "") {
+        // Simpan nama pengguna di localStorage
+        localStorage.setItem("username", username);
+
+        nameDisplay.textContent = username;
+
+        // Tampilkan pesan dengan animasi
+        greetingMessage.style.display = "block";  // Tampilkan pesan
+        greetingMessage.classList.add("show");    // Tambahkan kelas animasi
+
+        // Tutup pop-up setelah submit
+        welcomePopup.classList.remove("show");
+    } else {
+        alert("Mohon masukkan nama Anda.");
+    }
+}
+
+// Tambahan jika ingin menghapus pesan greeting setelah beberapa waktu
+setTimeout(() => {
+    if (localStorage.getItem("username")) {
+        greetingMessage.classList.remove("show"); // Hilangkan animasi
+        greetingMessage.style.display = "none";   // Sembunyikan pesan
+    }
+}, );  // Durasi 10 detik
+
+    </script>
+</body>
+
+</html>
