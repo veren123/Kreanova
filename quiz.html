@@ -290,7 +290,7 @@ input#user-name {
     Object.keys(answers).forEach((key, index) => {
         const isCorrect = answers[key] === correctAnswers[key];
         if (isCorrect) {
-            score += 200; // Menambahkan 200 poin per jawaban benar
+            score += 55; // Menambahkan 100 poin per jawaban benar
         }
         resultMCHTML += `
             <p>
@@ -301,7 +301,7 @@ input#user-name {
 
     // Menampilkan nama dan skor
     resultName.textContent = `Nama Anda: ${userName}`;
-    resultScore.textContent = `Skor Anda: ${Math.min(score, 400)} / 400`; // Skor maksimum 1000
+    resultScore.textContent = `Skor Anda: ${Math.min(score, 100)} / 100`; // Skor maksimum 100
 
     // Menyembunyikan quiz dan menampilkan hasil
     document.getElementById('quiz-content').style.display = 'none';
