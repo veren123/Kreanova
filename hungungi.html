@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Center VERDIYA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="IMG-20240908-WA0000.jpg">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #00274d;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #00274d;
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004080;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #00274d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        section {
+            background: linear-gradient(135deg, #f0f4f8, #e1e9ee);
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #2b3e50;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        .tentang-bantuan {
+            background: #e2e6ea;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tentang-bantuan b {
+            font-size: 1.8rem;
+            color: #007bff;
+            display: block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Service Center VERDIYA</h1>
+    <p>Fasilitas untuk memperoleh masukan dan kritik.</p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Jam Operasional</h2>
+        <p>Senin - Jumat: 06:00 - 18:00</p>
+        <p>Sabtu: 10:00 - 14:00</p>
+        <p>Minggu: Tutup</p>
+    </section>
+
+    <div class="tentang-bantuan">
+        <b>Tentang Pusat Bantuan</b>
+        <p>Kami siap membantu Anda kapan saja. Jika Anda menghadapi masalah, silakan hubungi Pusat Layanan Bantuan kami.</p>
+    </div>
+
+    <button id="toggleForm">Pusat Layanan Bantuan</button>
+
+    <div class="pertanyaan-untuk-kritik" id="kritikForm" style="display: none;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJVd1X7uA_Ex1TNMqr5EEFq-Nvvw452TI4QNyorRFf_jelpg/viewform?embedded=true" width="640" height="1223" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Service Center VERDIYA | <a href="index.html">Home</a></p>
+</footer>
+
+<script>
+    const toggleFormButton = document.getElementById('toggleForm');
+    const kritikForm = document.getElementById('kritikForm');
+
+    toggleFormButton.addEventListener('click', function() {
+        kritikForm.style.display = kritikForm.style.display === "none" || kritikForm.style.display === "" ? "block" : "none";
+    });
+</script>
+
+</body>
+</html>
