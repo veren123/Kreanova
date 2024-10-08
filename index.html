@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdiyan Website - Server Shutdown</title>
+    <link rel="icon" href="IMG-20240908-WA0000.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a; /* Latar belakang yang lebih gelap untuk nuansa sedih */
+            color: #d1d1d1; /* Warna font abu-abu lembut */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 28px;
+            color: #ff5c5c; /* Warna merah pudar untuk menambah kesan duka */
+            margin-bottom: 5px;
+        }
+
+        #countdown {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #e0a1a1; /* Warna yang lebih lembut untuk hitung mundur */
+        }
+
+        .notice {
+            font-size: 18px;
+            color: #d1d1d1;
+        }
+
+        .developer-message {
+            font-size: 16px;
+            color: #b0b0b0; /* Warna lebih lembut untuk pesan developer */
+            margin: 20px 0;
+            max-width: 600px; /* Membatasi lebar untuk keterbacaan */
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Styling untuk tombol */
+        .content-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #ff5c5c; /* Warna merah untuk tombol */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .content-button:hover {
+            background-color: #e04545; /* Warna lebih gelap saat hover */
+        }
+
+        @media (max-width: 600px) {
+            header p {
+                font-size: 22px;
+            }
+            #countdown {
+                font-size: 18px;
+            }
+            .notice {
+                font-size: 16px;
+            }
+            .developer-message {
+                font-size: 14px; /* Ukuran font lebih kecil untuk perangkat kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>SELAMAT DATANG DI WEBSITE VERDIYA 😢</p> <!-- Emoji kesedihan -->
+        <p>Server akan dimatikan dalam:</p>
+    </header>
+
+    <p class="developer-message">Kata-kata hari ini dari developer:</p>
+    <p class="developer-message">Sudah berusaha sekuat tenaga, merangkai mimpi setinggi langit, tapi hasilnya tak seindah yang kuharapkan. Lomba Krenova jadi saksi bisu betapa keras aku mencoba, namun kenyataan tak berpihak. Kegagalan ini terasa berat, seolah menghancurkan harapan yang selama ini kubangun. Ada kecewa yang tak bisa terucap, hanya diam yang bisa menemani. Mungkin jalanku tak di sini, mungkin ini saatnya berhenti dan belajar menerima bahwa tak semua usaha berakhir dengan kemenangan.</p>
+
+    <div id="countdown"></div>
+    <p class="notice">Server akan dimatikan 10 hari dari sekarang.</p>
+
+    
+    <!-- Tombol untuk mengarahkan ke konten -->
+    <button class="content-button" onclick="window.location.href='LObby.html';">Masuk ke lobby</button>
+
+    <footer>
+        &copy; 2024 Verdiyan Website. Semua hak dilindungi.
+    </footer>
+
+    <script>
+        // Tentukan tanggal penutupan server (10 hari dari sekarang)
+        var serverShutdownDate;
+
+        // Cek apakah ada tanggal yang disimpan di localStorage
+        if (localStorage.getItem('shutdownDate')) {
+            serverShutdownDate = new Date(localStorage.getItem('shutdownDate'));
+        } else {
+            // Jika belum ada, set tanggal penutupan dan simpan di localStorage
+            serverShutdownDate = new Date();
+            serverShutdownDate.setDate(serverShutdownDate.getDate() + 10);
+            localStorage.setItem('shutdownDate', serverShutdownDate);
+        }
+
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = serverShutdownDate - now;
+
+            // Hitung waktu tersisa dalam hari, jam, menit, dan detik
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + " Hari " + hours + " Jam " 
+            + minutes + " Menit " + seconds + " Detik ";
+
+            // Jika waktu habis
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Server Telah Dimatikan";
+                localStorage.removeItem('shutdownDate'); // Hapus tanggal dari localStorage jika sudah habis
+            }
+        }
+
+        // Update hitung mundur setiap detik
+        var countdownFunction = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Panggil sekali untuk menampilkan nilai awal
+    </script>
+</body>
+</html>
